@@ -16,10 +16,10 @@ Description and order of the KineetR workflow:
 * (Extra) Mast.R: Set of R functions from proccess Kinect files 
 
 Front file view: oclussed points in red
-![img](http://imgur.com/1LllHyw)
+![img](http://i.imgur.com/1LllHyw.png)
 
 Side file view: Not inferred points
-![img](http://imgur.com/Ye7lPBJ)
+![img](http://i.imgur.com/Ye7lPBJ.png)
 
 Reconstructed file view:
-![img](http://imgur.com/gxn80zg)
+![img](http://i.imgur.com/gxn80zg.png)
