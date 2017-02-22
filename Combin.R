@@ -2,11 +2,11 @@
 # Author: Eugenia Ulzurrun euv(at)uma.es
 # Description: R Script for combine two Kinects files in order to improve its quality replacing inferred points from one with not-inferred points from other.
   
-  setwd("/Users/Sergio/Documents/BitlabProjects/")
+  setwd("/Users/Sergio/Documents/BitlabProjects/KineetR")
   
   r_excelfrontal <- read.csv("/Users/Sergio/Dropbox/Trabajo/Deep Learning/R/Ficheros/FrontFile.csv", header=TRUE, sep=";")
   nf_excelfrontal <- length(r_excelfrontal[,1]) # Aunque diferencie el numero de filas(nf) de ambos archivos este n?mero es igual en ambos casos
-  r_excellateral <- read.csv("RotatedAlignedSidefile.csv", header=FALSE, sep=";")
+  r_excellateral <- read.csv("RotatedAlignedSidefile.csv", header=TRUE, sep=";")
   nf_excellateral <- length(r_excellateral[,2])
   
   # Segun lo anterior este if es para practicar
@@ -26,27 +26,34 @@
   
   write(cabecera, file = "excelfrontalylateral.csv", append = TRUE )
   
+  count2 <- 0
+  count1 <- 0
+  
   for(i in 1:nf_mayor){
     j <- 2
     linea <- paste(r_excelfrontal[i,1], sep=";")
     
     while(j <= nc_excelfyc){
       
-      if(r_excelfrontal[i,j]==1 && r_excellateral[i,j]==0){
+      if((r_excelfrontal[i,j]==1) && (r_excellateral[i,j]==0)){
         
-        r_excelfrontal[i,j] <- r_excellateral[i,j]
+        count2 <- count2 + 1
+        
+        r_excelfrontal[i,j] <- c(2)
         r_excelfrontal[i,j+1] <- r_excellateral[i,j+1]
         r_excelfrontal[i,j+2] <- r_excellateral[i,j+2]
         r_excelfrontal[i,j+3] <- r_excellateral[i,j+3] 
         
       }
       
-      if(r_excelfrontal[i,j]==1 && r_excellateral[i,j]==1){
+      if((r_excelfrontal[i,j]==1) && (r_excellateral[i,j]==1)){
+        
+        count1 <- count1 + 1
 
-        r_excelfrontal[i,j] <- c(2)
-        r_excelfrontal[i,j+1] <- ((r_excelfrontal[i,j-1]) + (r_excelfrontal[i,j+5]))/2
-        r_excelfrontal[i,j+2] <- ((r_excelfrontal[i,j-2]) + (r_excelfrontal[i,j+6]))/2
-        r_excelfrontal[i,j+3] <- ((r_excelfrontal[i,j-3]) + (r_excelfrontal[i,j+7]))/2
+        r_excelfrontal[i,j] <- c(1)
+        r_excelfrontal[i,j+1] <- ((r_excelfrontal[i-1,j+1]) + (r_excelfrontal[i+1,j+1]))/2
+        r_excelfrontal[i,j+2] <- ((r_excelfrontal[i-1,j+2]) + (r_excelfrontal[i+1,j+2]))/2
+        r_excelfrontal[i,j+3] <- ((r_excelfrontal[i-1,j+3]) + (r_excelfrontal[i+1,j+3]))/2
 
       }
       linea <- paste(linea, r_excelfrontal[i,j], r_excelfrontal[i,j+1], r_excelfrontal[i,j+2], r_excelfrontal[i,j+3],sep=";")

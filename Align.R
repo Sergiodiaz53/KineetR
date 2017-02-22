@@ -10,7 +10,7 @@ if(!exists("foo", mode="function")) source("Mast.R")
 # Set path to files and working directory
 front_file <- scan("/Users/Sergio/Dropbox/Trabajo/Deep Learning/R/Ficheros/90_oscar_60_B.csv", skip=1, sep="\n", what = character())
 side_file <- scan("/Users/Sergio/Dropbox/Trabajo/Deep Learning/R/Ficheros/WalkingOscarRotatedBA.csv", skip=1, sep="\n", what = character())
-setwd("/Users/Sergio/Documents/BitlabProjects/")
+setwd("/Users/Sergio/Documents/BitlabProjects/KineetR")
 
 # Parameters #
 # @Body_point: Body point to do the alignment

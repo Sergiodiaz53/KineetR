@@ -10,7 +10,7 @@ body_point <- 19
 # Set path to files and working directory
 front_file <- scan("/Users/Sergio/Dropbox/Trabajo/Deep Learning/R/Ficheros/90_oscar_60_B.csv", skip=1, sep="\n", what = character())
 side_file <- scan("/Users/Sergio/Dropbox/Trabajo/Deep Learning/R/Ficheros/WalkingOscarRotatedBA.csv", skip=1, sep="\n", what = character())
-setwd("/Users/Sergio/Documents/BitlabProjects/")
+setwd("/Users/Sergio/Documents/BitlabProjects/KineetR")
 
 if(!exists("foo", mode="function")) source("Mast.R")
 
@@ -105,6 +105,6 @@ colnames(side_matrix) <- c("tiempo","esq0Inf","esq0X","esq0Y","esq0Z","esq1Inf",
 colnames(front_matrix) <- c("tiempo","esq0Inf","esq0X","esq0Y","esq0Z","esq1Inf","esq1X","esq1Y","esq1Z","esq2Inf","esq2X","esq2Y","esq2Z","esq3Inf","esq3X","esq3Y","esq3Z", "esq4Inf","esq4X","esq4Y","esq4Z","esq5Inf","esq5X","esq5Y","esq5Z","esq6Inf","esq6X","esq6Y","esq6Z","esq7Inf","esq7X","esq7Y","esq7Z","esq8Inf","esq8X","esq8Y","esq8Z","esq9Inf","esq9X","esq9Y","esq9Z","esq10Inf","esq10X","esq10Y","esq10Z","esq11Inf","esq11X","esq11Y","esq11Z","esq12Inf","esq12X","esq12Y","esq12Z","esq13Inf","esq13X","esq13Y","esq13Z","esq14Inf","esq14X","esq14Y","esq14Z","esq15Inf","esq15X","esq15Y","esq15Z","esq16Inf","esq16X","esq16Y","esq16Z","esq17Inf","esq17X","esq17Y","esq17Z","esq18Inf","esq18X","esq18Y","esq18Z","esq19Inf","esq19X","esq19Y","esq19Z","esq20Inf","esq20X","esq20Y","esq20Z","esq21Inf","esq21X","esq21Y","esq21Z","esq22Inf","esq22X","esq22Y","esq22Z","esq23Inf","esq23X","esq23Y","esq23Z","esq24Inf", "esq24X","esq24Y","esq24Z","esqRefInf","esqRefX","esqRefY","esqRefZ")
 
 #Writting output files
-write.table(front_matrix, file = "FrontFile.csv",row.names=FALSE, na="",col.names=FALSE, sep=";")
-write.table(side_matrix, file = "RotatedAlignedSidefile.csv",row.names=FALSE, na="",col.names=FALSE, sep=";")
+write.table(front_matrix, file = "FrontFile.csv",row.names=FALSE, na="",col.names=TRUE, sep=";")
+write.table(side_matrix, file = "RotatedAlignedSidefile.csv",row.names=FALSE, na="",col.names=TRUE, sep=";")
 

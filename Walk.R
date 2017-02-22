@@ -26,7 +26,7 @@ setwd("/Users/Sergio/Desktop/KinectImgs")
 traslation <- 1
 n_frames <- -1
 point_esq_1 <- 15
-point_esq_2 <- 17
+point_esq_2 <- 71
 dist_to_spinebase_or_time <- 1
 h <- 90
 
@@ -214,6 +214,7 @@ for(i in start:l.col){
   equis <- c()
   zeta <- c()
   igriega <- c()
+  jota <- c()
   
   k <- 1
   
@@ -248,7 +249,7 @@ for(i in start:l.col){
         if(mi_matriz[i,j-1] == 1) {
           move_pac_cam$points3d(x,y,z, col="red", type="o", pch=19) 
         } else if(mi_matriz[i,j-1] == 2){
-          move_pac_cam$points3d(x,y,z, col="darkgreen", type="o", pch=19) 
+          move_pac_cam$points3d(x,y,z, col="darkolivegreen2", type="o", pch=19) 
         } else {
           move_pac_cam$points3d(x,y,z)
         }
@@ -262,8 +263,10 @@ for(i in start:l.col){
         col_point_esq_2 <- j
       }
       
-      j <- j + 4
+      jota[k] <- mi_matriz[i,j-1]
       
+      j <- j + 4
+  
       equis[k] <-  x
       zeta[k] <- z
       igriega[k] <- y
@@ -272,10 +275,18 @@ for(i in start:l.col){
       
     }
     
-    for(puntos in 1:26){
+    for(puntos in 1:24){
       for(union in 1:3){
         if(mapeo[puntos,union] != -1){
-          move_pac_cam$points3d(c(equis[puntos],equis[mapeo[puntos,union]]),c(igriega[puntos],igriega[mapeo[puntos,union]]),c(zeta[puntos],zeta[mapeo[puntos,union]]),type="l",col="blue",lwd=2) 
+          if((jota[puntos] == 1)) {
+            move_pac_cam$points3d(c(equis[puntos],equis[mapeo[puntos,union]]),c(igriega[puntos],igriega[mapeo[puntos,union]]),c(zeta[puntos],zeta[mapeo[puntos,union]]),type="l",col="red",lwd=2) 
+          } else if((jota[puntos] == 2)) {
+            move_pac_cam$points3d(c(equis[puntos],equis[mapeo[puntos,union]]),c(igriega[puntos],igriega[mapeo[puntos,union]]),c(zeta[puntos],zeta[mapeo[puntos,union]]),type="l",col="darkolivegreen2",lwd=2) 
+            
+          } else {
+            move_pac_cam$points3d(c(equis[puntos],equis[mapeo[puntos,union]]),c(igriega[puntos],igriega[mapeo[puntos,union]]),c(zeta[puntos],zeta[mapeo[puntos,union]]),type="l",col="darkgrey",lwd=2) 
+            
+          }
         }
       }
     }

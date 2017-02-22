@@ -14,3 +14,12 @@ Description and order of the KineetR workflow:
 * Walk.R: R Script for paint each frame of a Kinect file as a cloud point representation in a scatterplot 3D.
 
 * (Extra) Mast.R: Set of R functions from proccess Kinect files 
+
+Front file view: oclussed points in red
+![img](http://imgur.com/1LllHyw)
+
+Side file view: Not inferred points
+![img](http://imgur.com/Ye7lPBJ)
+
+Reconstructed file view:
+![img](http://imgur.com/gxn80zg)

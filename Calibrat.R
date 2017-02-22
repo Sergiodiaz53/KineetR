@@ -7,7 +7,7 @@
 # Set path to files and working directory
 front_file <- scan("/Users/Sergio/Dropbox/Trabajo/Deep Learning/R/Ficheros/90_oscar_60_B.csv", skip=1, sep="\n", what = character())
 side_file <- scan("/Users/Sergio/Dropbox/Trabajo/Deep Learning/R/Ficheros/90_oscar_60_A.csv", skip=1, sep="\n", what = character())
-setwd("/Users/Sergio/Dropbox/Trabajo/Deep Learning/R/Ficheros/")
+setwd("/Users/Sergio/Documents/BitlabProjects/KineetR")
 
 library(scatterplot3d)
 library(pracma)
